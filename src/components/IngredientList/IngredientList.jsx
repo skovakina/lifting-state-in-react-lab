@@ -1,18 +1,21 @@
-const IngredientList = ({ ingredients, addIngredient }) => {
+import Ingredient from "../Ingredient/Ingredient";
+
+function IngredientList({ ingredients, addIngredient }) {
   return (
     <ul>
       {ingredients.map((ingredient, index) => {
         return (
-          <li key={index} style={{ backgroundColor: ingredient.color }}>
-            {ingredient.name}
-            <button type="button" onClick={() => addIngredient(ingredient)}>
-              +
-            </button>
-          </li>
+          <Ingredient
+            key={index}
+            ingredient={ingredient}
+            index={index}
+            onClick={() => addIngredient(ingredient)}
+            buttonText="+"
+          />
         );
       })}
     </ul>
   );
-};
+}
 
 export default IngredientList;

@@ -1,18 +1,20 @@
-const BurgerStack = ({ stack, removeIngredient }) => {
+import Ingredient from "../Ingredient/Ingredient";
+function BurgerStack({ stack, removeIngredient }) {
   return (
     <ul>
       {stack.map((ingredient, index) => {
         return (
-          <li key={index} style={{ backgroundColor: ingredient.color }}>
-            {ingredient.name}
-            <button type="button" onClick={() => removeIngredient(index)}>
-              -
-            </button>
-          </li>
+          <Ingredient
+            key={index}
+            ingredient={ingredient}
+            index={index}
+            onClick={() => removeIngredient(index)}
+            buttonText="-"
+          />
         );
       })}
     </ul>
   );
-};
+}
 
 export default BurgerStack;
